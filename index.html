@@ -1,48 +1,382 @@
-<div class="section">
-    <h2>Projects</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gal Tibi | Mechanical Engineer</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --link-color: #0066cc;
+            --link-hover: #004499;
+            --card-bg: #f9f9f9;
+            --max-width: 700px;
+        }
 
-    <div class="grid">
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+            --link-color: #66b2ff;
+            --link-hover: #99ccff;
+            --card-bg: #1c1c1c;
+        }
 
-        <a class="card" href="https://www.tmg-medical.com/" target="_blank" style="text-decoration:none;color:inherit;">
-            <h3>Orthopedic Surgical Tools</h3>
-            <p class="small">
-                End-to-end development of orthopedic surgical instruments including DFM,
-                V&V, manufacturing transfer, and field failure investigations.
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+        }
+
+        .title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--card-bg);
+        }
+
+        .summary {
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-cv {
+            display: inline-block;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-cv:hover {
+            opacity: 0.9;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .project-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 1.25rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 1.25rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--text-muted);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--link-color);
+        }
+
+        .project-card:hover .project-title {
+            color: var(--link-hover);
+        }
+
+        .company-tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .project-list {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+
+        .project-list li {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-color);
+        }
+
+        .pub-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .pub-link {
+            display: inline-block;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--link-color);
+            text-decoration: none;
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-link:hover {
+            text-decoration: underline;
+        }
+
+        .pub-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item {
+            font-size: 0.95rem;
+        }
+
+        .contact-item span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 0.75rem;
+            }
+            
+            .header-top {
+                flex-direction: column-reverse;
+                gap: 1rem;
+            }
+
+            .theme-toggle {
+                align-self: flex-end;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>Gal Tibi</h1>
+                    <div class="title">Mechanical Engineer | Medical Devices, Robotics & Opto-Mechanical Systems</div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
+            </div>
+            <p class="summary">
+                Mechanical engineer with 6+ years of experience in robotics, surgical instruments, medical devices, and opto-mechanical systems. Experience leading full product lifecycle development from concept through production, including orthopedic surgical tools, ophthalmic visualization systems, and failure investigations.
             </p>
-            <p class="small">→ T.A.G. Medical</p>
-        </a>
+            <a href="Gal_Tibi_CV.pdf" class="btn-cv" download>Download CV</a>
+        </header>
 
-        <a class="card" href="https://www.beyeonics.com/" target="_blank" style="text-decoration:none;color:inherit;">
-            <h3>Beyeonics One</h3>
-            <p class="small">
-                Opto-mechanical design of a digital surgical visualization and AR system
-                for ophthalmic procedures.
-            </p>
-            <p class="small">→ Beyeonics</p>
-        </a>
+        <main>
+            <section id="projects">
+                <h2>Projects</h2>
 
-        <a class="card" href="https://www.mirobot.co.il/" target="_blank" style="text-decoration:none;color:inherit;">
-            <h3>miRobot System</h3>
-            <p class="small">
-                Designed robotic subsystems including sensors, mechanisms,
-                waterproof connectors, and assembly systems.
-            </p>
-            <p class="small">→ miRobot</p>
-        </a>
+                <a href="https://www.tmg-medical.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <div class="project-header">
+                        <div class="project-title">Orthopedic Surgical Instruments</div>
+                        <div class="company-tag">T.A.G. Medical ↗</div>
+                    </div>
+                    <ul class="project-list">
+                        <li>End-to-end development from concept to production</li>
+                        <li>DFM for injection molded and machined components</li>
+                        <li>V&V planning and execution</li>
+                        <li>Root cause analysis of field and production failures</li>
+                    </ul>
+                </a>
 
+                <a href="https://www.beyeonics.com/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <div class="project-header">
+                        <div class="project-title">Ophthalmic Visualization System</div>
+                        <div class="company-tag">Beyeonics ↗</div>
+                    </div>
+                    <ul class="project-list">
+                        <li>Opto-mechanical system design</li>
+                        <li>Motion systems and system integration</li>
+                        <li>Regulatory (ISO 60601), production support</li>
+                    </ul>
+                </a>
+
+                <a href="https://www.mirobot.co.il/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <div class="project-header">
+                        <div class="project-title">Robotic Milking System</div>
+                        <div class="company-tag">miRobot ↗</div>
+                    </div>
+                    <ul class="project-list">
+                        <li>Mechanical subsystem design</li>
+                        <li>Sensors, actuators, connectors</li>
+                        <li>Supplier coordination and manufacturing drawings</li>
+                    </ul>
+                </a>
+            </section>
+
+            <section id="publications">
+                <h2>Publications</h2>
+
+                <div class="pub-item">
+                    <a href="https://scholar.google.com/scholar?q=electrothermal+actuators+soft+robotics+Tibi" class="pub-link" target="_blank" rel="noopener noreferrer">Soft Robotics (2020) – Electrothermal actuators ↗</a>
+                    <div class="pub-meta">Research and development regarding electrothermal actuation architectures within soft robotics frameworks.</div>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://scholar.google.com/scholar?q=IEEE+ICRA+tri-layer+actuator+Tibi" class="pub-link" target="_blank" rel="noopener noreferrer">IEEE ICRA (2017) – Tri-layer actuator modeling ↗</a>
+                    <div class="pub-meta">Presented at the IEEE International Conference on Robotics and Automation (ICRA).</div>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://scholar.google.com/scholar?q=Sensors+and+Actuators+B+CNT+actuators+Tibi" class="pub-link" target="_blank" rel="noopener noreferrer">Sensors & Actuators B – CNT-based actuators ↗</a>
+                    <div class="pub-meta">Analysis and characterization of carbon nanotube-driven physical actuator nodes.</div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span>Email</span>
+                        <a href="mailto:gal.tibi.placeholder@example.com">gal.tibi.placeholder@example.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>Phone</span>
+                        <a href="tel:+1234567890">+123-456-7890</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>LinkedIn</span>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/gal-tibi</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Gal Tibi. Built with minimalism and precision.</p>
+        </footer>
     </div>
-</div>
 
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // Check for saved theme preference, otherwise use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
 
-<div class="section">
-    <h2>Publications</h2>
-
-    <a class="card" href="https://scholar.google.com/scholar?q=electrothermal+actuators+tri-layer+Tibi" target="_blank" style="text-decoration:none;color:inherit;">
-        <p class="small">
-            Electro-thermal and soft robotics actuator design — Soft Robotics (2020),
-            IEEE ICRA (2017), Sensors & Actuators B
-        </p>
-        <p class="small">→ Google Scholar</p>
-    </a>
-
-</div>
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+            
+            if (currentTheme === 'light') {
+                newTheme = 'dark';
+            }
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
