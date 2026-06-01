@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,15 +162,44 @@
             font-weight: 500;
         }
 
+        .project-content {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            margin-top: 0.5rem;
+        }
+
         .project-list {
             list-style-position: inside;
-            padding-left: 0.5rem;
+            padding-left: 0rem;
+            flex: 1;
         }
 
         .project-list li {
             font-size: 0.95rem;
             margin-bottom: 0.25rem;
             color: var(--text-color);
+        }
+
+        .project-img-wrapper {
+            width: 140px;
+            height: 95px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: #ebebeb;
+        }
+
+        [data-theme="dark"] .project-img-wrapper {
+            background-color: #2a2a2a;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .pub-item {
@@ -230,6 +260,17 @@
             text-align: center;
         }
 
+        @media (max-width: 580px) {
+            .project-content {
+                flex-direction: column-reverse;
+                gap: 1rem;
+            }
+            .project-img-wrapper {
+                width: 100%;
+                height: 160px;
+            }
+        }
+
         @media (max-width: 480px) {
             body {
                 padding: 1.5rem 0.75rem;
@@ -263,9 +304,9 @@
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
             </div>
             <p class="summary">
-                Mechanical engineer with 6+ years of experience in robotics, surgical instruments, medical devices, and opto-mechanical systems. Experience leading full product lifecycle development from concept through production, including orthopedic surgical tools, ophthalmic visualization systems, and failure investigations.
+                Mechanical engineer with 6+ years of experience in robotics, surgical instruments, medical devices, and opto-mechanical systems. Experience developing full product lifecycle development from concept through production, including orthopedic surgical tools, ophthalmic visualization systems, and failure investigations.
             </p>
-            <a href="Gal_Tibi_CV.pdf" class="btn-cv" download>Download CV</a>
+            <a href="Gal_Tibi_CV.pdf" class="btn-cv" download="Gal_Tibi_CV.pdf">Download CV</a>
         </header>
 
         <main>
@@ -277,12 +318,17 @@
                         <div class="project-title">Orthopedic Surgical Instruments</div>
                         <div class="company-tag">T.A.G. Medical ↗</div>
                     </div>
-                    <ul class="project-list">
-                        <li>End-to-end development from concept to production</li>
-                        <li>DFM for injection molded and machined components</li>
-                        <li>V&V planning and execution</li>
-                        <li>Root cause analysis of field and production failures</li>
-                    </ul>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>End-to-end development from concept to production</li>
+                            <li>DFM for injection molded and machined components</li>
+                            <li>V&V planning and execution</li>
+                            <li>Root cause analysis of field and production failures</li>
+                        </ul>
+                        <div class="project-img-wrapper">
+                            <img src="tag_ortho.jpg" alt="Orthopedic Surgical Instruments" class="project-img" onerror="this.style.display='none';">
+                        </div>
+                    </div>
                 </a>
 
                 <a href="https://www.beyeonics.com/" class="project-card" target="_blank" rel="noopener noreferrer">
@@ -290,11 +336,16 @@
                         <div class="project-title">Ophthalmic Visualization System</div>
                         <div class="company-tag">Beyeonics ↗</div>
                     </div>
-                    <ul class="project-list">
-                        <li>Opto-mechanical system design</li>
-                        <li>Motion systems and system integration</li>
-                        <li>Regulatory (ISO 60601), production support</li>
-                    </ul>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Opto-mechanical system design</li>
+                            <li>Motion systems and system integration</li>
+                            <li>Regulatory (ISO 60601), production support</li>
+                        </ul>
+                        <div class="project-img-wrapper">
+                            <img src="beyeonics_vis.jpg" alt="Ophthalmic Visualization System" class="project-img" onerror="this.style.display='none';">
+                        </div>
+                    </div>
                 </a>
 
                 <a href="https://www.mirobot.co.il/" class="project-card" target="_blank" rel="noopener noreferrer">
@@ -302,11 +353,16 @@
                         <div class="project-title">Robotic Milking System</div>
                         <div class="company-tag">miRobot ↗</div>
                     </div>
-                    <ul class="project-list">
-                        <li>Mechanical subsystem design</li>
-                        <li>Sensors, actuators, connectors</li>
-                        <li>Supplier coordination and manufacturing drawings</li>
-                    </ul>
+                    <div class="project-content">
+                        <ul class="project-list">
+                            <li>Mechanical subsystem design</li>
+                            <li>Sensors, actuators, connectors</li>
+                            <li>Supplier coordination and manufacturing drawings</li>
+                        </ul>
+                        <div class="project-img-wrapper">
+                            <img src="mirobot_milking.jpg" alt="Robotic Milking System" class="project-img" onerror="this.style.display='none';">
+                        </div>
+                    </div>
                 </a>
             </section>
 
@@ -314,18 +370,23 @@
                 <h2>Publications</h2>
 
                 <div class="pub-item">
-                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener noreferrer">Soft Robotics (2020) – Electrothermal actuators ↗</a>
-                    <div class="pub-meta">Research and development regarding electrothermal actuation architectures within soft robotics frameworks.</div>
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:d1gkVwhDpl0C" class="pub-link" target="_blank" rel="noopener noreferrer">Pre-programmed tri-layer electro-thermal actuators composed of shape memory polymer and carbon nanotubes ↗</a>
+                    <div class="pub-meta">Soft Robotics (2020) | Co-author</div>
                 </div>
 
                 <div class="pub-item">
-                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:u5HHmVD_uO8C" class="pub-link" target="_blank" rel="noopener noreferrer">IEEE ICRA (2017) – Tri-layer actuator modeling ↗</a>
-                    <div class="pub-meta">Presented at the IEEE International Conference on Robotics and Automation (ICRA).</div>
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:u5HHmVD_uO8C" class="pub-link" target="_blank" rel="noopener noreferrer">Pre-programmed tri-layer electro-thermal actuators composed of shape memory polymer and carbon nanotubes ↗</a>
+                    <div class="pub-meta">Soft Robotics (2020) | Alternative Repository Link</div>
                 </div>
 
                 <div class="pub-item">
-                    <a href="https://scholar.google.com/scholar?q=Sensors+and+Actuators+B+CNT+actuators+Tibi" class="pub-link" target="_blank" rel="noopener noreferrer">Sensors & Actuators B – CNT-based actuators ↗</a>
-                    <div class="pub-meta">Analysis and characterization of carbon nanotube-driven physical actuator nodes.</div>
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:9yKSN-GCB0IC" class="pub-link" target="_blank" rel="noopener noreferrer">Three-layered design of electrothermal actuators for minimal voltage operation ↗</a>
+                    <div class="pub-meta">Sensors and Actuators B: Chemical | Co-author</div>
+                </div>
+
+                <div class="pub-item">
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=TJc8YrEAAAAJ&citation_for_view=TJc8YrEAAAAJ:u-x6o8ySG0sC" class="pub-link" target="_blank" rel="noopener noreferrer">Analytic modeling and experiments of tri-layer, electro-thermal actuators for thin and soft robotics ↗</a>
+                    <div class="pub-meta">IEEE ICRA (2017) | Co-author</div>
                 </div>
             </section>
 
@@ -380,3 +441,5 @@
     </script>
 </body>
 </html>
+
+```
